@@ -1,4 +1,10 @@
 import Vue from "vue";
+import styled from "vue-styled-components";
+
+const styledDiv = styled.div`
+  white-space: pre-wrap;
+  text-align: left;
+`;
 
 export default Vue.extend({
   name: "HelloWorld",
@@ -43,7 +49,7 @@ export default Vue.extend({
     return (
       <div>
         <div>Type KeyBoard!!!!!</div>
-        <div>{this.input}</div>
+        <styledDiv>{this.input}</styledDiv>
       </div>
     );
   }
