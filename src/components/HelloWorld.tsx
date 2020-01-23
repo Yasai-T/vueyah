@@ -6,11 +6,17 @@ const styledDiv = styled.div`
   text-align: left;
 `;
 
+interface Data {
+  texts: string[]
+  line: number
+}
+
 export default Vue.extend({
   name: "HelloWorld",
-  data() {
+  data(): Data {
     return {
-      input: ""
+      texts: [""],
+      line: 0
     };
   },
   methods: {
@@ -26,20 +32,24 @@ export default Vue.extend({
       }
       switch (e.code) {
         case "Space":
-          this.input += " "; // TODO: Space handling
+          this.texts[this.line] += " "; // TODO: Space handling
           break;
         case "Enter":
-          this.input += "\n";
+          this.line += 1
+          this.texts.push('')
           break;
         case "Backspace":
-          this.input = this.input.slice(0, -1);
+          // this.texts = this.texts.slice(0, -1);
           break;
         case "Tab":
-          this.input += "    ";
+          this.texts[this.line] += "    ";
+          break;
+        case "ArrowUp":
+          this.line !== 0 ? this.line -= 1 : () => ({})
           break;
         default:
-          this.input += e.key;
-          console.log("input", this.input);
+          this.texts[this.line] += e.key;
+          console.log("texts", this.texts);
           break;
       }
     }
@@ -49,7 +59,9 @@ export default Vue.extend({
     return (
       <div>
         <div>Type KeyBoard!!!!!</div>
-        <styledDiv>{this.input}</styledDiv>
+        {this.texts.map((text, index) => <styledDiv key={index}>{index + 1}: {text}</styledDiv>
+        )
+        }
       </div>
     );
   }
