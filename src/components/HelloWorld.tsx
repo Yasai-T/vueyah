@@ -1,7 +1,7 @@
 import Vue from "vue";
 import styled from "vue-styled-components";
 
-const styledDiv = styled.div`
+const StyledDiv = styled.div`
   white-space: pre-wrap;
   text-align: left;
 `;
@@ -109,9 +109,11 @@ export default Vue.extend({
           x: {this.x} y: {this.y}
         </div>
         {this.texts.map((text, index) => (
-          <styledDiv key={index}>
-            {index}: {text}
-          </styledDiv>
+          <div key={index}>
+            <StyledDiv>
+              {index}: {text}
+            </StyledDiv>
+          </div>
         ))}
       </div>
     );
