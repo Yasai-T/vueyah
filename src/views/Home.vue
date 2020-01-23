@@ -7,7 +7,7 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.jsx";
+import HelloWorld from "@/components/HelloWorld.tsx";
 
 export default {
   name: "home",

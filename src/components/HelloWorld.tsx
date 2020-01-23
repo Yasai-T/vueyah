@@ -7,7 +7,7 @@ export default Vue.extend({
   },
   render() {
     return (
-      <div>hello</div>
+      <div>hellooo</div>
     )
   }
 })
